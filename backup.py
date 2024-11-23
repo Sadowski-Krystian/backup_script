@@ -7,8 +7,10 @@ import shutil
 
 SOURCE_PATHS = ["/home/gulgulglut/Documents", "/nieistniejaca/sciezka/test"] 
 BACKUP_DIR = "/backup" 
-LOG_FILE = "/backup/backup_log.log" 
+LOG_FILE = os.path.join(BACKUP_DIR, "backup_log.log")
 
+if not os.path.exists(BACKUP_DIR):
+    os.makedirs(BACKUP_DIR)
 
 logging.basicConfig(
     filename=LOG_FILE,
